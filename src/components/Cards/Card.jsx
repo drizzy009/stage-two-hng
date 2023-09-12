@@ -14,7 +14,7 @@ const Card = ({ movie }) => {
           width={250}
           height={370}
         />
-        <span data-testid="movie-release-date">{movie.release_date}</span>
+        <span data-testid="movie-release-date">{movie.release_date.substring(0, 4)}</span>
         <span data-testid="movie-title">{movie.title}</span>
         <div className={styles.rating}>
           <span data-testid="movie-ratings">
