@@ -1,0 +1,7 @@
+.homePage {
+    background: url(../../assets/poster.png);
+    height: 560px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+}

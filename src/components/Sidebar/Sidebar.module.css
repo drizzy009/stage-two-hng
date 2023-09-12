@@ -1,0 +1,33 @@
+.aside {
+  border: 1px solid var(--darkgray);
+  border-radius: 0 40px 40px 0;
+  padding: 20px;
+  width: 20%;
+}
+.sidebarItems {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: fit-content;
+  gap: 64px;
+  margin: auto;
+  padding-top: 60px;
+}
+.sidebarItems li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--gray);
+  opacity: 0.6;
+  font-weight: 600;
+}
+.sidebarPlay {
+  background: #f8e7eb;
+  padding: 50px 15px 40px;
+  border: 1px solid var(--red);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 60px 0 30px;
+}

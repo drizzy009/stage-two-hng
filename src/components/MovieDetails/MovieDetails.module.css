@@ -1,0 +1,11 @@
+.relative {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    border-radius: 16px;
+}
+.mainFlex {
+    display: flex;
+    gap: 32px;
+}
