@@ -25,6 +25,10 @@
   --line-8xl: 6rem;
   --text-9xl: 8rem;
   --line-9xl: 8rem;
+  --text-info: 1.438rem;
+  --line-info: 2.123rem;
+
+  --border-gray: #F8E7EB;
 
 
   --white: #fff;
@@ -34,6 +38,8 @@
   --orange: #7C2D12;
   --yellow-amber: #78350F;
   --green: #064E3B;
+  --text-red: #B91C1C;
+  --text-dark: #333333;
 
   --fw-100: 100;
   --fw-200: 200;
@@ -41,6 +47,8 @@
   --fw-400: 400;
   --fw-500: 500;
   --fw-600: 600;
+
+  --text-info-fm: 'Poppins', sans-serif;
 
   .ytp-large-play-button::after {
     content: "Watch Trailer" !important;
