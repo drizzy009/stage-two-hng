@@ -4,7 +4,7 @@ export const handleApiError = (error) => {
   if (error.response) {
     const { status, data } = error.response;
 
-    if (status === 400) {
+    if (status === 404) {
       errorMessage = 'Resource not found.';
     } else if (status === 403) {
       errorMessage = 'Forbidden. You do not have permission to access this resource.';

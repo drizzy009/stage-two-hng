@@ -6,7 +6,7 @@ const API_KEY = '1aef3fe5661608b3f53ac9295e701e95';
 export const fetchTopMovies = async () => {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
     );
 
     return response.data.results.slice(0, 10);
