@@ -1,5 +1,39 @@
+.mainResults {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  background: var(--red);
+  height: 15vh;
+  padding: 30px 0 20px;
+}
 .gridResults {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: min-content;
+  margin: auto;
+  grid-gap: 24px;
+}
+.mainResults input {
+  background: var(--white) !important;
+  color: var(--gray) !important;
+}
+.headerContainer {
+  margin: 20px 222px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+  .gridResults {
+    display: block;
+  }
+  .headerContainer {
+    margin: 20px 65px 0;
+  }
+  .headerContainer h1 {
+    font-size: var(--text-sm);
+  }
+  .headerContainer svg {
+    color: var(--red);
+  }
 }

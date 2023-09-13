@@ -13,6 +13,22 @@
 }
 .featuredFlex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
   padding: 40px 0 30px;
+  margin: 0 222px;
+}
+
+@media screen and (max-width: 767px) {
+  .gridCards {
+    display: block;
+  }
+  .featuredFlex {
+    margin: 0 65px;
+  }
+  .featuredFlex h2 {
+    font-size: var(--text-sm);
+  }
+  .featuredFlex a {
+    font-size: var(--text-sm);
+  }
 }

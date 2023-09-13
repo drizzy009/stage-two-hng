@@ -17,3 +17,10 @@
   font-size: var(--text-base);
   line-height: var(--line-base);
 }
+
+@media screen and (max-width: 767px) {
+  .header img:nth-child(1) {
+    width: 80%;
+    display: none;
+  }
+}

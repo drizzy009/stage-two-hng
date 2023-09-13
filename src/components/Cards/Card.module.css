@@ -31,3 +31,8 @@
   margin-right: 12px;
 }
 
+@media screen and (max-width: 767px) {
+  .flexBox {
+    margin: 0 0 30px;
+  }
+}
