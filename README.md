@@ -40,3 +40,12 @@ overview - [data-testid: movie-overview]
 
 ### Error Handling:
 Implement error handling to display meaningful error messages to users in case of API failures or other issues.
+
+
+### How to Use
+
+- Clone this repository to your local machine:
+
+
+   ```bash
+   git clone https://github.com/drizzy009/stage-two-hng.git
