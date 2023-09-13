@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom'
 import Card from "../Cards/Card";
-import styles from './SearchResults.module.css';
+import styles from "./SearchResults.module.css";
 import { Suspense, useState, useEffect } from "react";
 import Loader from "../Loader/Loader";
+import Header from "./../Header/Header";
+import { BiSolidHomeAlt2 } from 'react-icons/bi'
 
 const SearchResults = ({ searchResults }) => {
   const [loadingDelay, setLoadingDelay] = useState(true);
@@ -10,7 +13,7 @@ const SearchResults = ({ searchResults }) => {
   useEffect(() => {
     const delayTimeout = setTimeout(() => {
       setLoadingDelay(false);
-    }, 3000); 
+    }, 3000);
 
     return () => {
       clearTimeout(delayTimeout);
@@ -18,16 +21,23 @@ const SearchResults = ({ searchResults }) => {
   }, []);
 
   return (
-    <div className={styles.gridResults}>
-      <Suspense fallback={<Loader />}>
-        {loadingDelay ? (
-          <Loader />
-        ) : (
-          searchResults.map((movie) => (
-            <Card key={movie.id} movie={movie} />
-          ))
-        )}
-      </Suspense>
+    <div className={styles.mainResults}>
+      <Header />
+      <div className={styles.headerContainer}>
+        <h1>Search Results</h1>
+        <Link to="/">
+          <BiSolidHomeAlt2 />
+        </Link>
+      </div>
+      <div className={styles.gridResults}>
+        <Suspense fallback={<Loader />}>
+          {loadingDelay ? (
+            <Loader />
+          ) : (
+            searchResults.map((movie) => <Card key={movie.id} movie={movie} />)
+          )}
+        </Suspense>
+      </div>
     </div>
   );
 };
@@ -35,12 +45,12 @@ const SearchResults = ({ searchResults }) => {
 SearchResults.propTypes = {
   searchResults: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      popularity: PropTypes.number.isRequired,
-      vote_average: PropTypes.number.isRequired,
-      poster_path: PropTypes.string.isRequired,
-      release_date: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      title: PropTypes.string,
+      popularity: PropTypes.number,
+      vote_average: PropTypes.number,
+      poster_path: PropTypes.string,
+      release_date: PropTypes.string,
     })
   ).isRequired,
 };
