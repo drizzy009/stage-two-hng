@@ -2,10 +2,12 @@ import styles from "./Header.module.css";
 import SearchBar from "./../SearchBar/SearchBar";
 import { Logo, menu } from "../../assets";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Header = () => {
+
+const Header = ({ style }) => {
   return (
-    <div className={styles.header}>
+    <div className={styles.header} style={style}>
       <Link to="/">
         <img src={Logo} alt="Movie Box Logo" />
       </Link>
@@ -19,3 +21,8 @@ const Header = () => {
 };
 
 export default Header;
+
+
+Header.propTypes = {
+  style: PropTypes.object,
+};

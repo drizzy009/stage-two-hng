@@ -8,7 +8,7 @@ import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <footer className={styles.mainFooter}>
+    <footer className={`${styles.mainFooter}`}>
       <div className={styles.footerCol1}>
         <ul>
           <li>{<BiLogoFacebookSquare />}</li>

@@ -22,7 +22,7 @@ const SearchResults = ({ searchResults }) => {
 
   return (
     <div className={styles.mainResults}>
-      <Header />
+      <Header style={{padding: "20px 0", background: "var(--red)"}}/>
       <div className={styles.headerContainer}>
         <h1>Search Results</h1>
         <Link to="/">
