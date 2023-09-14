@@ -45,7 +45,6 @@ Implement error handling to display meaningful error messages to users in case o
 - The API call will retrieve a list of the all-time top-rated movies slicing the featured movies to 10.
 - The search functionality displays results in a new search results page.
 - Users can click on movie posters to access the individual movie details.
-- To view a specific movie's dedicated page, users should click on the movie title within the search drop-down menu.
 - The Sidebar is responsive on mobile by clicking the left menu on the movie details page.
 
 
