@@ -63,7 +63,7 @@ const MovieDetails = () => {
           </div>
         </div>
         <div className={styles.movieMain}>
-          <div>
+          <div className={styles.movieDetailsLeft}>
             <div className={styles.movieInfo}>
               <p data-testid="movie-title">{movieDetails.title}</p>
               <BsCircleFill style={{ fontSize: 4 }} />
@@ -111,7 +111,7 @@ const MovieDetails = () => {
               </select>
             </div>
           </div>
-          <div>
+          <div className={styles.movieDetailsRight}>
             <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
               <div className={styles.leftRating}>
                 <BsStarFill style={{ color: "#fece32" }} />
