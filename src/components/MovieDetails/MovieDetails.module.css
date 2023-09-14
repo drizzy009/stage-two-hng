@@ -24,6 +24,12 @@
   display: flex;
   gap: 64px;
 }
+.movieDetailsLeft {
+  width: 70%;
+}
+.movieDetailsRight {
+  width: 30%;
+}
 .movieInfo {
   display: flex;
   align-items: center;
@@ -118,6 +124,9 @@
 .leftRating span:nth-child(2) {
   color: var(--darkgray);
   opacity: 0.2;
+}
+.leftPoster img {
+  width: 100%;
 }
 .leftButtons {
   display: flex;
