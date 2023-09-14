@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: min-content;
-  margin: auto;
+  margin: 0 220px;
   grid-gap: 24px;
 }
 .mainResults input {
@@ -27,6 +27,7 @@
 @media screen and (max-width: 767px) {
   .gridResults {
     display: block;
+    margin: 0 auto;
   }
   .headerContainer {
     margin: 20px 65px 0;
