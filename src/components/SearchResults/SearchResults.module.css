@@ -9,8 +9,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: min-content;
-  margin: 0 220px;
+  margin: 0 auto;
   grid-gap: 24px;
+}
+.singleResult {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: min-content;
+  margin: 0 220px;
 }
 .mainResults input {
   background: var(--white) !important;
@@ -37,5 +43,8 @@
   }
   .headerContainer svg {
     color: var(--red);
+  }
+  .singleResult {
+    margin: 20px auto;
   }
 }

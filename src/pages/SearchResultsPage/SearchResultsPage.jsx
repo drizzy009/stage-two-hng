@@ -7,17 +7,21 @@ import { handleApiError } from "../../utils/errorHandler";
 const SearchResultsPage = () => {
   const { query } = useParams();
   const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const results = await searchMovies(query);
-        setSearchResults(results);
+        if (results.length === 0) {
+          // Display the error in an alert box
+          alert("Movie not found.");
+        } else {
+          setSearchResults(results);
+        }
       } catch (error) {
         console.error("Error fetching search results:", error);
         const errorMessage = handleApiError(error);
-        setError(errorMessage);
+        alert(errorMessage); // Display the error in an alert box
       }
     };
 
@@ -26,8 +30,9 @@ const SearchResultsPage = () => {
 
   return (
     <div>
-      {error && <p>Error: {error}</p>}
-      <SearchResults searchResults={searchResults} />
+      {searchResults.length > 0 && (
+        <SearchResults searchResults={searchResults} />
+      )}
     </div>
   );
 };
