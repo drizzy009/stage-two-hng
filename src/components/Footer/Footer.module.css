@@ -1,0 +1,22 @@
+.mainFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 100px 0 0;
+}
+.footerCol1 ul {
+  display: flex;
+  gap: 40px;
+}
+.footerCol2 ul {
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+}
+.footerCol3 {
+    color: var(--darkgray);
+    opacity: .7;
+    font-weight: 600;
+}

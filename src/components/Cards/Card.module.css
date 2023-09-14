@@ -1,3 +1,10 @@
+.flexBox {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 12px;
+  margin-top: 20px;
+}
 .flexBox a {
   display: flex;
   flex-direction: column;
@@ -6,7 +13,7 @@
   font-size: var(--text-lg);
   line-height: var(--line-lg);
   font-weight: bold;
-  gap: 12px;
+  
 }
 .flexBox span:nth-child(2) {
   color: var(--darkgray);
