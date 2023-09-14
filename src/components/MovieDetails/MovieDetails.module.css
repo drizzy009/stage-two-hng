@@ -203,4 +203,7 @@
     width: 80%;
     margin: auto;
   }
+  .movieDetailsLeft, .movieDetailsRight {
+    width: 100%;
+  }
 }
