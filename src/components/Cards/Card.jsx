@@ -4,6 +4,17 @@ import styles from "./Card.module.css";
 import { imdb, rt } from "../../assets";
 
 const Card = ({ movie }) => {
+  const toUTC = (dateString) => {
+    const date = new Date(dateString);
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "UTC",
+    };
+    return date.toLocaleDateString("en-US", options);
+  };
+
   return (
     <div data-testid="movie-card" className={styles.flexBox}>
       <Link to={`/movies/${movie.id}`}>
@@ -14,8 +25,11 @@ const Card = ({ movie }) => {
           width={250}
           height={370}
         />
-        <span data-testid="movie-release-date">{movie.release_date.substring(0, 4)}</span>
+        <span data-testid="movie-release-date">
+          {toUTC(movie.release_date)}
+        </span>
         <span data-testid="movie-title">{movie.title}</span>
+        </Link>
         <div className={styles.rating}>
           <span data-testid="movie-ratings">
             <img src={imdb} alt={imdb} />
@@ -26,7 +40,6 @@ const Card = ({ movie }) => {
             {movie.vote_average * 10}%
           </span>
         </div>
-      </Link>
     </div>
   );
 };

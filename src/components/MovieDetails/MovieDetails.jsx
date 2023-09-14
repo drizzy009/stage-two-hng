@@ -35,6 +35,17 @@ const MovieDetails = () => {
     return <p>Movie details not found.</p>;
   }
 
+  const toUTC = (dateString) => {
+    const date = new Date(dateString);
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "UTC",
+    };
+    return date.toLocaleDateString("en-US", options);
+  };
+
   return (
     <div className={styles.mainFlex}>
       <Sidebar />
@@ -57,7 +68,7 @@ const MovieDetails = () => {
               <p data-testid="movie-title">{movieDetails.title}</p>
               <BsCircleFill style={{ fontSize: 4 }} />
               <p data-testid="movie-release-date">
-                {movieDetails.release_date.substring(0, 4)}
+                {toUTC(movieDetails.release_date)}
               </p>
               <BsCircleFill style={{ fontSize: 4 }} />
               <p data-testid="movie-certification">PG-13</p>
