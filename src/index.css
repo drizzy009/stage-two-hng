@@ -82,3 +82,9 @@ body {
   font-family: 'DM Sans', sans-serif;
   padding-bottom: 60px;
 }
+
+@media screen and (max-width: 767px) {
+  body {
+    padding-bottom: 20px;
+  }
+}
