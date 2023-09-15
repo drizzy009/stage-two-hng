@@ -2,9 +2,8 @@
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh;
+  height: 70vh;
   border-radius: 16px;
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +14,21 @@
   padding: 30px;
   gap: 32px;
   margin-left: 220px;
+}
+.youtubeClass {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.youtubeClass iframe {
+  border-radius: 16px;
+  border: 0;
+}
+.youtubeClass iframe button {
+  display: none !important;
 }
 .mainFlex {
   display: flex;
@@ -47,12 +61,14 @@
   background: rgba(232, 232, 232, 0.35);
   border-radius: 100%;
   padding: 20px;
+  cursor: pointer;
 }
 .movieTrailer span {
   color: var(--white);
   font-family: var(--text-info-fm);
   font-size: var(--text-2xl);
   line-height: var(--line-2xl);
+  cursor: pointer;
 }
 .movieInfo p {
   font-size: var(--text-base);
@@ -157,7 +173,6 @@
   color: var(--dark);
 }
 
-
 @media screen and (max-width: 767px) {
   .movieDetails {
     margin: 0;
@@ -167,6 +182,7 @@
     width: 100%;
     background-size: contain;
     height: 22vh;
+    margin-top: 30px;
   }
   .movieTrailer svg {
     font-size: 50px;
@@ -203,7 +219,8 @@
     width: 80%;
     margin: auto;
   }
-  .movieDetailsLeft, .movieDetailsRight {
+  .movieDetailsLeft,
+  .movieDetailsRight {
     width: 100%;
   }
 }

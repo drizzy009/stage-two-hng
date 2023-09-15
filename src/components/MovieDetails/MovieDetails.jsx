@@ -12,6 +12,8 @@ const MovieDetails = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [videoKey, setVideoKey] = useState(null);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +21,15 @@ const MovieDetails = () => {
         const details = await fetchMovieDetails(id);
         setMovieDetails(details);
         setLoading(false);
+
+        // Find the trailer video key
+        const trailerVideo = details.videos.results.find(
+          (video) => video.type === "Trailer"
+        );
+
+        if (trailerVideo) {
+          setVideoKey(trailerVideo.key);
+        }
       } catch (error) {
         setLoading(false);
       }
@@ -27,12 +38,21 @@ const MovieDetails = () => {
     fetchData();
   }, [id]);
 
+  const handlePlayClick = () => {
+    setVideoPlaying(true);
+  };
+
+  useEffect(() => {
+    if (videoPlaying && videoKey) {
+      const iframe = document.getElementById("youtube-iframe");
+      if (iframe) {
+        iframe.src = `https://www.youtube.com/embed/${videoKey}?autoplay=1`;
+      }
+    }
+  }, [videoPlaying, videoKey]);
+
   if (loading) {
     return <Loader />;
-  }
-
-  if (!movieDetails) {
-    return <p>Movie details not found.</p>;
   }
 
   const toUTC = (dateString) => {
@@ -49,24 +69,40 @@ const MovieDetails = () => {
   return (
     <div className={styles.mainFlex}>
       <Sidebar />
-      <div className={styles.movieDetails}
-      >
+      <div className={styles.movieDetails}>
         <div
           className={styles.relative}
           style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path})`,
+            backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path})`, 
           }}
         >
-          <div className={styles.movieTrailer}>
-            <BsPlayFill />
-            <span aria-label="Watch Trailer">Watch Trailer</span>
-          </div>
+          {videoKey && (
+            <div className={styles.youtubeClass}>
+              {!videoPlaying ? (
+                <div className={styles.movieTrailer} onClick={handlePlayClick}>
+                  <BsPlayFill />
+                  <span aria-label="Watch Trailer">Watch Trailer</span>
+                </div>
+              ) : null}
+              {videoPlaying && (
+                <iframe
+                  id="youtube-iframe"
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${videoKey}`}
+                  title={movieDetails.videos.results[0].key}
+                  allowFullScreen
+                  className={styles.iframe}
+                ></iframe>
+              )}
+            </div>
+          )}
         </div>
         <div className={styles.movieMain}>
           <div className={styles.movieDetailsLeft}>
             <div className={styles.movieInfo}>
               <p data-testid="movie-title">{movieDetails.title}</p>
-              <BsCircleFill style={{ fontSize: 4 }} />
+              <BsCircleFill />
               <p data-testid="movie-release-date">
                 {toUTC(movieDetails.release_date)}
               </p>
@@ -143,21 +179,6 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-
-      {/* {movieDetails.videos.results.length > 0 && (
-      <div>
-        <h2>Trailer:</h2>
-        <iframe
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${movieDetails.videos.results[0].key}`}
-          title={movieDetails.videos.results[0].name}
-          frameBorder="0"
-          allowFullScreen
-          className={styles.iframe}
-        ></iframe>
-      </div>
-    )} */}
     </div>
   );
 };
