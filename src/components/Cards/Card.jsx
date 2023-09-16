@@ -38,8 +38,7 @@ const Card = ({ movie }) => {
           data-testid="movie-poster"
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}
-          width={250}
-          height={370}
+          className={styles.flexBox_img}
         />
         <span data-testid="movie-release-date">
           {toUTC(movie.release_date)}

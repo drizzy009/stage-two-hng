@@ -21,6 +21,10 @@
   font-size: var(--text-xs);
   font-weight: var(--fw-600);
 }
+.flexBox_img {
+  width: 250px;
+  height: 370px;
+}
 .rating {
   display: flex;
   justify-content: space-between;
